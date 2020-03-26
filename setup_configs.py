@@ -1,14 +1,14 @@
 from bs4 import BeautifulSoup
 import json
 
-import urls
-import authentication
-from exceptions import AuthorizationException, CredentialsException
+import utils.urls as urls
+import utils.authentication as authentication
+from utils.exceptions import AuthorizationException, CredentialsException
 
-from group import Group
+from utils.group import Group
 
 
-def get_all_groups(sess, cookies):
+def get_all_groups(sess, token):
 
     res = sess.get(urls.ALL_GROUPS_LIST_URL)
 
@@ -46,13 +46,13 @@ def get_all_groups(sess, cookies):
 
 def main():
     try:
-        logged_in_session, cookies = authentication.signin()
+        logged_in_session, token = authentication.signin()
     except AuthorizationException:
         return
     except CredentialsException:
         return
 
-    get_all_groups(logged_in_session, cookies)
+    get_all_groups(logged_in_session, token)
     print("You configuration settings have been updated!")
 
 
