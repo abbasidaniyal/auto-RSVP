@@ -43,6 +43,10 @@ def get_all_groups(sess, token):
         f.write(jsonStr)
         f.truncate()
 
+    # Creates an empty file if does not exist, else does nothing.
+    with open('rsvped_events.json', 'w'):
+        pass
+
 
 def main():
     try:
