@@ -29,7 +29,7 @@ This generated the `selected_groups.json` with the groups selected by you.
 ``` shell
 python3 auto_rsvp.py 
 ```
-Note: You can add a `--dry_run` flag if you want to simply test the tool with making RSVPs.
+Note: You can add a `--dry_run` flag if you want to simply test the tool without making RSVPs.
 
 
 ## Exceptions
